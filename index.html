@@ -62,11 +62,39 @@
     .lang-block.active {
       display: block;
     }
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .lang-toggle button {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      color: #e6e6eb;
+      cursor: pointer;
+      padding: 8px 12px;
+      font-size: 13px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.24);
+    }
+    .lang-toggle button:hover {
+      background: rgba(255,255,255,0.18);
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
+
+    <div class="lang-toggle" aria-label="Language Switch">
+      <button type="button" data-switch-lang="zh">中文</button>
+      <button type="button" data-switch-lang="en">English</button>
+    </div>
 
     <section class="lang-block" data-lang="zh">
       <h1>隐私政策</h1>
@@ -251,23 +279,44 @@
   </div>
   <script>
     (function () {
-      const prefersZh = (navigator.languages || []).some(code => /^zh/i.test(code))
-        || /^zh/i.test(navigator.language || '');
+      const storageKey = 'noctibeat-lang';
       const zhBlock = document.querySelector('[data-lang="zh"]');
       const enBlock = document.querySelector('[data-lang="en"]');
-      const showBlock = prefersZh ? zhBlock : enBlock;
-      const hideBlock = prefersZh ? enBlock : zhBlock;
+      const buttons = Array.from(document.querySelectorAll('[data-switch-lang]'));
 
-      if (showBlock) {
-        showBlock.classList.add('active');
-        showBlock.hidden = false;
-      }
-      if (hideBlock) {
-        hideBlock.classList.remove('active');
-        hideBlock.hidden = true;
-      }
+      const detectBrowserLang = () => (
+        (navigator.languages || []).some(code => /^zh/i.test(code))
+        || /^zh/i.test(navigator.language || '')
+      ) ? 'zh' : 'en';
 
-      document.documentElement.lang = prefersZh ? 'zh-CN' : 'en';
+      const applyLang = lang => {
+        const showBlock = lang === 'zh' ? zhBlock : enBlock;
+        const hideBlock = lang === 'zh' ? enBlock : zhBlock;
+
+        if (showBlock) {
+          showBlock.classList.add('active');
+          showBlock.hidden = false;
+        }
+        if (hideBlock) {
+          hideBlock.classList.remove('active');
+          hideBlock.hidden = true;
+        }
+
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.switchLang === lang));
+      };
+
+      const saved = localStorage.getItem(storageKey);
+      const initialLang = saved === 'zh' || saved === 'en' ? saved : detectBrowserLang();
+      applyLang(initialLang);
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.switchLang;
+          localStorage.setItem(storageKey, lang);
+          applyLang(lang);
+        });
+      });
     })();
   </script>
 </body>
