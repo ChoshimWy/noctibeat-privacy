@@ -74,16 +74,21 @@
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: var(--gradient);
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      color: #05060d;
-      font-weight: 800;
-      font-size: 18px;
-      box-shadow: 0 10px 30px rgba(127, 245, 247, 0.4);
+      box-shadow: 0 10px 30px rgba(127, 245, 247, 0.25);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     nav {
@@ -357,7 +362,9 @@
   <div class="page">
     <header class="glass">
       <div class="logo">
-        <div class="logo-mark">N</div>
+        <div class="logo-mark">
+          <img src="images/SleepPulseLogo.svg" alt="夜律 · NoctiBeat 标志" />
+        </div>
         <div>夜律 · NoctiBeat</div>
       </div>
       <nav>
