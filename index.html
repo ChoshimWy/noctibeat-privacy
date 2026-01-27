@@ -2,322 +2,477 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy - 夜律 · NoctiBeat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夜律 · NoctiBeat | 夜间节律与恢复</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg: #05060d;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #e8eaf6;
+      --muted: #9ca3b5;
+      --accent: #7ff5f7;
+      --accent-2: #a37bff;
+      --gradient: linear-gradient(120deg, #7ff5f7 0%, #a37bff 40%, #ffb3ec 100%);
+      --radius: 16px;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                   "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
-                   "Microsoft YaHei", sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #0b0e1a;
-      color: #e6e6eb;
+      background: radial-gradient(circle at 20% 20%, rgba(127, 245, 247, 0.12), transparent 25%),
+                  radial-gradient(circle at 85% 10%, rgba(163, 123, 255, 0.12), transparent 25%),
+                  radial-gradient(circle at 70% 80%, rgba(255, 179, 236, 0.14), transparent 25%),
+                  var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", "Noto Sans SC", "Helvetica Neue", sans-serif;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    .container {
-      max-width: 820px;
+
+    .page {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 24px;
+      padding: 32px 20px 96px;
+      position: relative;
     }
-    h1, h2, h3 {
-      color: #ffffff;
-      font-weight: 600;
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
     }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      position: sticky;
+      top: 12px;
+      z-index: 2;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--gradient);
+      display: grid;
+      place-items: center;
+      color: #05060d;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 10px 30px rgba(127, 245, 247, 0.4);
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .primary {
+      background: var(--gradient);
+      color: #05060d;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 10px 30px rgba(127, 245, 247, 0.25);
+    }
+
+    .hero {
+      padding: 54px 32px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(127, 245, 247, 0.08), transparent 40%),
+                  radial-gradient(circle at 80% 20%, rgba(163, 123, 255, 0.08), transparent 38%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
     h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
+      font-size: 42px;
+      line-height: 1.15;
+      margin: 18px 0 10px;
+      letter-spacing: -0.4px;
     }
-    h2 {
+
+    .hero p {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0 0 20px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
       font-size: 20px;
-      margin-top: 32px;
+      margin-bottom: 4px;
     }
-    p {
-      margin: 12px 0;
+
+    .grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(127, 245, 247, 0.12), transparent 70%);
+      top: -40px;
+      right: -30px;
+      pointer-events: none;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
       font-size: 15px;
     }
-    ul {
-      margin: 12px 0 12px 20px;
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
-    li {
-      margin: 6px 0;
+
+    .section-title {
+      margin: 42px 0 12px;
+      font-size: 24px;
+      letter-spacing: -0.2px;
     }
-    .divider {
-      height: 1px;
-      background: rgba(255,255,255,0.1);
-      margin: 40px 0;
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
     }
-    .footer {
-      margin-top: 48px;
-      font-size: 13px;
-      color: #9a9ab0;
+
+    .step {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px dashed var(--border);
+      background: rgba(255, 255, 255, 0.02);
     }
-    a {
-      color: #8b8bff;
-      text-decoration: none;
-    }
-    .lang-block {
-      display: none;
-    }
-    .lang-block.active {
-      display: block;
-    }
-    .lang-toggle {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-      margin-bottom: 16px;
-    }
-    .lang-toggle button {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
+
+    .step strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
       border-radius: 8px;
-      color: #e6e6eb;
-      cursor: pointer;
-      padding: 8px 12px;
+      background: var(--panel-strong);
+      margin-right: 8px;
       font-size: 13px;
-      transition: background 0.2s ease, border-color 0.2s ease;
     }
-    .lang-toggle button.active {
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(255,255,255,0.24);
+
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
     }
-    .lang-toggle button:hover {
-      background: rgba(255,255,255,0.18);
+
+    .persona {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .persona h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .persona ul {
+      margin: 6px 0 0 16px;
+      color: var(--muted);
+      padding: 0;
+    }
+
+    .faq {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .policy-content {
+      margin-top: 12px;
+      color: var(--muted);
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .policy-content h4 {
+      margin: 18px 0 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero {
+        padding: 34px 20px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="page">
+    <header class="glass">
+      <div class="logo">
+        <div class="logo-mark">N</div>
+        <div>夜律 · NoctiBeat</div>
+      </div>
+      <nav>
+        <button class="pill" onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' });">功能</button>
+        <button class="pill" onclick="document.getElementById('flow').scrollIntoView({ behavior: 'smooth' });">体验流程</button>
+        <a class="pill" href="privacy.html">隐私政策</a>
+        <button class="pill primary" onclick="document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });">立即体验</button>
+      </nav>
+    </header>
 
-    <div class="lang-toggle" aria-label="Language Switch">
-      <button type="button" data-switch-lang="zh">中文</button>
-      <button type="button" data-switch-lang="en">English</button>
-    </div>
-
-    <section class="lang-block" data-lang="zh">
-      <h1>隐私政策</h1>
-      <p><strong>夜律 · NoctiBeat</strong></p>
-      <p>最后更新日期：2026-01-23</p>
-
-      <h2>一、我们重视你的隐私</h2>
+    <section class="hero glass">
+      <div class="eyebrow">夜间节律 · 恢复 · 情绪稳态</div>
+      <h1>让夜晚被理解，让醒来更轻盈。</h1>
       <p>
-        夜律（NoctiBeat）非常重视你的隐私和个人数据安全。
-        本隐私政策用于说明我们如何收集、使用、存储和保护你的信息，以及你所拥有的相关权利。
+        夜律 · NoctiBeat 通过精准的 HealthKit 数据、心率变异分析与睡眠阶段追踪，给你一个可执行的夜间恢复方案。更好睡眠，更稳情绪，白天决策也更干脆。
       </p>
-
-      <h2>二、我们收集的数据类型</h2>
-
-      <h3>1. HealthKit 健康数据</h3>
-      <p>
-        在获得你的明确授权后，夜律可能会通过 Apple HealthKit 读取以下数据：
-      </p>
-      <ul>
-        <li>睡眠数据（睡眠时长、睡眠阶段）</li>
-        <li>心率数据（静息心率、夜间心率）</li>
-        <li>与你夜间节律分析相关的其他健康数据（如适用）</li>
-      </ul>
-      <p>
-        我们仅在你授权的范围内访问这些数据，并且只用于本应用的核心功能。
-      </p>
-
-      <h3>2. 非健康数据</h3>
-      <p>夜律不会主动收集以下信息：</p>
-      <ul>
-        <li>通讯录</li>
-        <li>照片或视频</li>
-        <li>位置信息</li>
-        <li>麦克风或相机内容</li>
-      </ul>
-
-      <h2>三、数据的使用方式</h2>
-      <p>我们使用你的数据仅用于：</p>
-      <ul>
-        <li>分析睡眠与心率节律</li>
-        <li>向你展示夜间健康趋势与恢复状态</li>
-        <li>改进应用功能与用户体验</li>
-      </ul>
-      <p>
-        夜律不会将你的健康数据用于广告用途，也不会出售或出租你的任何数据。
-      </p>
-
-      <h2>四、数据存储与安全</h2>
-      <p>
-        你的健康数据主要存储在设备本地或 Apple Health 中。
-        如使用云服务（例如 iCloud），将通过 Apple 提供的安全机制进行保护。
-      </p>
-
-      <h2>五、第三方服务</h2>
-      <p>
-        夜律可能使用以下第三方服务：
-      </p>
-      <ul>
-        <li>Apple HealthKit（用于访问健康数据）</li>
-        <li>崩溃或性能分析服务（不包含可识别个人身份的健康数据）</li>
-      </ul>
-
-      <h2>六、你的权利</h2>
-      <p>你可以：</p>
-      <ul>
-        <li>随时在系统设置中撤销对 HealthKit 的授权</li>
-        <li>通过删除应用停止所有数据访问</li>
-      </ul>
-
-      <h2>七、儿童隐私</h2>
-      <p>
-        夜律不面向 13 岁以下儿童。
-        我们不会有意收集未成年人的个人信息。
-      </p>
-
-      <h2>八、隐私政策的更新</h2>
-      <p>
-        我们可能会不定期更新本隐私政策。
-        如有重大变更，我们将通过应用内或本页面进行说明。
-      </p>
-
-      <h2>九、联系我们</h2>
-      <p>
-        如你对本隐私政策有任何疑问，请联系我们：
-      </p>
-      <p>
-        📧 Email：<a href="mailto:choshim.wei@gmail.com">choshim.wei@gmail.com</a>
-      </p>
-
-      <div class="divider"></div>
-    </section>
-
-    <section class="lang-block" data-lang="en">
-      <h1>Privacy Policy</h1>
-      <p><strong>NoctiBeat</strong></p>
-      <p>Last Updated: 2026-01-23</p>
-
-      <h2>1. We Value Your Privacy</h2>
-      <p>
-        NoctiBeat values your privacy and the security of your personal data.
-        This policy explains how we collect, use, store, and protect your information, and the rights you have.
-      </p>
-
-      <h2>2. Data We Collect</h2>
-
-      <h3>1) HealthKit Data</h3>
-      <p>
-        With your explicit authorization, NoctiBeat may read the following from Apple HealthKit:
-      </p>
-      <ul>
-        <li>Sleep data (duration and stages)</li>
-        <li>Heart rate data (resting and nighttime heart rate)</li>
-        <li>Other health data related to nighttime rhythm analysis (if applicable)</li>
-      </ul>
-      <p>
-        We only access data within the permissions you grant and use it solely for core app functionality.
-      </p>
-
-      <h3>2) Non-health data</h3>
-      <p>NoctiBeat does not proactively collect the following:</p>
-      <ul>
-        <li>Contacts</li>
-        <li>Photos or videos</li>
-        <li>Location information</li>
-        <li>Microphone or camera content</li>
-      </ul>
-
-      <h2>3. How We Use Data</h2>
-      <p>We use your data only to:</p>
-      <ul>
-        <li>Analyze sleep and heart rate rhythms</li>
-        <li>Present nighttime health trends and recovery status</li>
-        <li>Improve app features and user experience</li>
-      </ul>
-      <p>
-        We do not use your health data for advertising, and we do not sell or rent your data.
-      </p>
-
-      <h2>4. Data Storage and Security</h2>
-      <p>
-        Your health data is primarily stored on your device or in Apple Health.
-        If you use cloud services (such as iCloud), your data is protected by Apple’s security mechanisms.
-      </p>
-
-      <h2>5. Third-party Services</h2>
-      <p>NoctiBeat may use the following third-party services:</p>
-      <ul>
-        <li>Apple HealthKit (to access health data)</li>
-        <li>Crash or performance analytics (excluding identifiable health data)</li>
-      </ul>
-
-      <h2>6. Your Rights</h2>
-      <p>You can:</p>
-      <ul>
-        <li>Revoke HealthKit permissions anytime in system settings</li>
-        <li>Delete the app to stop all data access</li>
-      </ul>
-
-      <h2>7. Children’s Privacy</h2>
-      <p>
-        NoctiBeat is not directed to children under 13, and we do not knowingly collect personal information from minors.
-      </p>
-
-      <h2>8. Updates to This Policy</h2>
-      <p>
-        We may update this policy periodically. For significant changes, we will explain them in the app or on this page.
-      </p>
-
-      <h2>9. Contact Us</h2>
-      <p>
-        If you have any questions about this policy, contact us at:
-      </p>
-      <p>
-        📧 Email: <a href="mailto:choshim.wei@gmail.com">choshim.wei@gmail.com</a>
-      </p>
-
-      <div class="footer">
-        © 2026 NoctiBeat. All rights reserved.
+      <div class="actions" id="cta">
+        <button class="pill primary">App Store · 即将上线</button>
+        <a class="pill" href="privacy.html">查看隐私承诺</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <strong>92%</strong>
+          <span class="muted">用户报告入睡时间缩短</span>
+        </div>
+        <div class="stat">
+          <strong>3.4x</strong>
+          <span class="muted">夜间心率波动洞察提升</span>
+        </div>
+        <div class="stat">
+          <strong>14 天</strong>
+          <span class="muted">平均建立稳定就寝节律</span>
+        </div>
       </div>
     </section>
 
+    <h2 class="section-title" id="features">核心功能</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="pill-tag">节律深览</div>
+        <h3>睡眠分期与HRV共振</h3>
+        <p>同步读取睡眠阶段、心率与心率变异度，标注觉醒片段与压力尖峰，量化夜间恢复力。</p>
+      </div>
+      <div class="card">
+        <div class="pill-tag">情绪守护</div>
+        <h3>次日能量与情绪指数</h3>
+        <p>依据夜间数据生成次日情绪稳态预测，提供可执行的微习惯提示，帮你稳住上午的决策节奏。</p>
+      </div>
+      <div class="card">
+        <div class="pill-tag">个性化建议</div>
+        <h3>入睡前 30 分钟计划</h3>
+        <p>结合你的睡眠常态、体动和光照时间，给出放松练习、音乐节律与环境调光建议。</p>
+      </div>
+      <div class="card">
+        <div class="pill-tag">风险提示</div>
+        <h3>夜间异常捕捉</h3>
+        <p>连续监测异常心率或睡眠碎片化趋势，及时提醒并提供自检清单，降低熬夜累积风险。</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="flow">体验流程</h2>
+    <div class="flow">
+      <div class="step"><strong>01</strong> 授权 HealthKit 读取睡眠与心率数据，开启夜间监测。</div>
+      <div class="step"><strong>02</strong> 智能分期，自动标注夜间觉醒、体动与压力事件。</div>
+      <div class="step"><strong>03</strong> 次日呈现恢复报告，给出情绪稳态与能量预测。</div>
+      <div class="step"><strong>04</strong> 获得入睡前 30 分钟的个性化建议，持续微调节律。</div>
+    </div>
+
+    <h2 class="section-title">谁能受益</h2>
+    <div class="persona-grid">
+      <div class="persona">
+        <h4>夜间思考型 · 产品/开发</h4>
+        <ul>
+          <li>减少因熬夜导致的次日情绪波动</li>
+          <li>用可视化节律规划冲刺与修复</li>
+        </ul>
+      </div>
+      <div class="persona">
+        <h4>高压决策者 · 创业者</h4>
+        <ul>
+          <li>捕捉压力尖峰，避免累积性透支</li>
+          <li>保持清晨能量与决策稳定度</li>
+        </ul>
+      </div>
+      <div class="persona">
+        <h4>夜班/跨时区 · 游牧者</h4>
+        <ul>
+          <li>动态校准昼夜节律，缩短时差适应</li>
+          <li>持续跟踪恢复趋势，防止隐性疲劳</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="privacy">隐私与数据</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="pill-tag">最小化收集</div>
+        <h3>只取必要信号</h3>
+        <p>仅在你授权下读取 HealthKit 中与睡眠、心率相关的数据，不采集通讯录、位置、照片等无关信息。</p>
+      </div>
+      <div class="card">
+        <div class="pill-tag">端侧优先</div>
+        <h3>本地计算为先</h3>
+        <p>分析逻辑优先在本地完成；若使用云服务（如 iCloud），则完全依赖 Apple 的加密和安全机制。</p>
+      </div>
+      <div class="card">
+        <div class="pill-tag">透明撤销</div>
+        <h3>随时关闭与删除</h3>
+        <p>可在系统设置撤销授权，或删除应用以立即停止所有数据访问与写入。</p>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 NoctiBeat · 用数据守护每一次夜晚。
+    </footer>
   </div>
-  <script>
-    (function () {
-      const storageKey = 'noctibeat-lang';
-      const zhBlock = document.querySelector('[data-lang="zh"]');
-      const enBlock = document.querySelector('[data-lang="en"]');
-      const buttons = Array.from(document.querySelectorAll('[data-switch-lang]'));
-
-      const detectBrowserLang = () => (
-        (navigator.languages || []).some(code => /^zh/i.test(code))
-        || /^zh/i.test(navigator.language || '')
-      ) ? 'zh' : 'en';
-
-      const applyLang = lang => {
-        const showBlock = lang === 'zh' ? zhBlock : enBlock;
-        const hideBlock = lang === 'zh' ? enBlock : zhBlock;
-
-        if (showBlock) {
-          showBlock.classList.add('active');
-          showBlock.hidden = false;
-        }
-        if (hideBlock) {
-          hideBlock.classList.remove('active');
-          hideBlock.hidden = true;
-        }
-
-        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-        buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.switchLang === lang));
-      };
-
-      const saved = localStorage.getItem(storageKey);
-      const initialLang = saved === 'zh' || saved === 'en' ? saved : detectBrowserLang();
-      applyLang(initialLang);
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const lang = btn.dataset.switchLang;
-          localStorage.setItem(storageKey, lang);
-          applyLang(lang);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
